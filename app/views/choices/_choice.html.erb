@@ -3,7 +3,7 @@
   <div class="row">
     <div class="5u 12u(small)">
       <section class="box feature">
-        <a href="#" class="image featured"><%= image_tag 'pic01.jpg' %></a>
+        <%= render 'votes/form', choice: choice, selection: 'option_a', image: 'images/pic01.jpg' %>
         <div class="inner">
           <header>
             <h2><%= choice.option_a %></h2>
@@ -13,10 +13,13 @@
     </div>
     <div class="2u 12u(small)">
       <h1>OR</h1>
+      <p class="vote-results-<%= choice.id %>">
+        <%= Vote.where(choice_id: choice.id).group(:selection).count %>
+      </p>
     </div>
     <div class="5u 12u(small)">
       <section class="box feature">
-        <a href="#" class="image featured"><%= image_tag 'pic02.jpg' %></a>
+        <%= render 'votes/form', choice: choice, selection: 'option_b', image: 'images/pic02.jpg' %>
         <div class="inner">
           <header>
             <h2><%= choice.option_b %></h2>

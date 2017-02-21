@@ -49,3 +49,7 @@
 .new-choice form {
   text-align: left;
 }
+
+.choice form input {
+  max-width: 100%;
+}
