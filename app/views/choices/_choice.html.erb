@@ -28,4 +28,11 @@
       </section>
     </div>
   </div>
+  <% choice.comments.each do |comment| %>
+    <p class="comment"><%= comment.content %><br>
+    By: <%= comment.author %></p>
+  <% end %>
+  <div class='new-comment-<%= choice.id %>'>
+    <p><%= link_to "Add a comment", new_choice_comment_path(choice), remote: true %></p>
+  </div>
 </div>
