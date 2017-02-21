@@ -16,8 +16,10 @@ class ChoicesController < ApplicationController
   def create
     @choice = Choice.new(choice_params)
     if @choice.save
-      flash[:notice] = "Choice Saved Successfully."
-      redirect_to choice_path(@choice)
+      respond_to do |format|
+        format.html { redirect_to choice_path(@choice), notice: "Choice Saved Successfully." }
+        format.js
+      end
     else
       flash[:alert] = "There was a problem creating your choice. Please try again."
       redirect_to new_choice_path
