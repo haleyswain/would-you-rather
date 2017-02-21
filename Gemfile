@@ -27,6 +27,9 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem "phantomjs"
+  gem "poltergeist"
+  gem 'database_cleaner'
 end
 
 group :development do

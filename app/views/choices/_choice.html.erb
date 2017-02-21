@@ -14,7 +14,10 @@
     <div class="2u 12u(small)">
       <h1>OR</h1>
       <p class="vote-results-<%= choice.id %>">
-        <%= Vote.where(choice_id: choice.id).group(:selection).count %>
+        <% votes = Vote.where(choice_id: choice.id).group(:selection).count %>
+        <% votes.each do |key, value| %>
+          <%= "#{key.to_s}: #{value.to_s}" %><br>
+        <% end %>
       </p>
     </div>
     <div class="5u 12u(small)">
